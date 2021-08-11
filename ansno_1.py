@@ -11,7 +11,14 @@ class employees_data:
                 host="localhost",
                 database="my_assignment",
                 user="postgres",
-                password="Krantideep@1")
+                '''
+                sharing of confidential data should be avoided
+                use separate file for storing them 
+                or use environment variables
+                such as env.password
+                to store such informations
+                '''
+                password="Krantideep@1") 
             # Creating a cursor object using the cursor() method
             cur = connection.cursor()
 
