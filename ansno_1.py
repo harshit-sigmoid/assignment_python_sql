@@ -24,6 +24,7 @@ class employees_data:
 
 
             # we are reading our table which  we imported using connection through querry
+            '''could be named in format such as query_<type>'''
             script = """SELECT e1.empno, e1.ename, (case when mgr is not null then (select ename from emp as e2 where e1.mgr=e2.empno limit 1) else null end) as manager
                         from emp as e1"""
             #cur.execute(' to select empno from jobhist table')
@@ -32,6 +33,7 @@ class employees_data:
 
             column_name = [desc[0] for desc in cur.description]
             file_name = cur.fetchall()
+            '''file is still a dataframe, could be named as final_table'''
             file = pand.DataFrame(list(file_name), columns=column_name)
 
             Creating_xlsx = pand.ExcelWriter('ansno_1.py.xlsx')
