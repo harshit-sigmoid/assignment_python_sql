@@ -27,13 +27,17 @@ where jobhist.deptno=dept.deptno and jobhist.empno=emp.empno"""
             new_file = pand.DataFrame(list(data), columns=column_name)
 
             file = pand.ExcelWriter('Assignment-2.py.xlsx')
+            ''' index=False should be provided as parameter otherwise the pand.to_excel() will also save the indexes of dataframe'''
             new_file.to_excel(file, sheet_name='bar')
             file.save()
 # throw exception
         except Exception as e:
+             ''' use logger instead of print statement '''
             print("Something went wrong", e)
         finally:
-
+             '''
+             do commit the transactions as conn.commit()
+             '''
             if conn is not None:
                 cur.close()
                 conn.close()

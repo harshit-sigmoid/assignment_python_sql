@@ -2,6 +2,8 @@ import psycopg2
 from openpyxl.workbook import Workbook
 import pandas as pand
 # creating employee class
+
+''' follow camel casing wile naming Classes   eg.  class employeesData'''
 class employees_data:
 
     def emp(self):
